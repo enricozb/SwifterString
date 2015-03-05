@@ -72,21 +72,6 @@ extension String {
 	}
 	
 	subscript (str_start: String, str_end: String) -> String {
-		return "swank"
+		assert(false, "not implemented yet")
 	}
 }
-
-let str = "<Hello, World>"
-
-str["Hello"]    // 1
-str["World"]	// 8
-//str["Carl"]     // raises NSException ("SubstringIndexNotFound")
-str["<", ">"]   // "Hello, World"
-str[1]          // "H"
-str[1, 8]       // "Hello, World"
-str[-1]         // ">"
-str[-14]        // "<"
-//str[14]         // raises NSException ("StringIndexBeyondRange")
-//str[-15]        // raises NSException ("StringIndexBeyondRange")
-str.length()    // 14
-str.reverse()   // ">dlroW ,olleH<"
