@@ -72,6 +72,6 @@ extension String {
 	}
 	
 	subscript (str_start: String, str_end: String) -> String {
-		assert(false, "not implemented yet")
+		return self[self[str_start] + str_start.length(), self[str_end]]
 	}
 }
