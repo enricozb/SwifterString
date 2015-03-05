@@ -30,7 +30,7 @@ extension String {
 		var flipped = false
 		
 		if start > end {
-		swap(&start, &end)
+			swap(&start, &end)
 			flipped = true
 		}
 		
@@ -51,9 +51,7 @@ extension String {
 			return self.reverse()[-(i + 1)]
 		}
 		
-		if i >= self.length() {
-			NSException(name: "StringIndexBeyondRange", reason: "The index is beyond the maximum index of the String", userInfo: nil).raise()
-		}
+		assert( i < self.length(), "Index is beyond range")
 		
 		return self[advance(self.startIndex, i)]
 	}
@@ -62,13 +60,9 @@ extension String {
 		
 		let possibleIndex = self.rangeOfString(str)?.startIndex
 		
-		if let index = possibleIndex {
-			return "\(self.rangeOfString(str)!.startIndex)".toInt()!
-		}
-		else {
-			NSException(name: "SubstringIndexNotFound", reason: "The substring was not found in the string", userInfo: nil).raise()
-		}
-		return -1
+		assert(possibleIndex != nil, "No substring found")
+		
+		return "\(self.rangeOfString(str)!.startIndex)".toInt()!
 	}
 	
 	subscript (str_start: String, str_end: String) -> String {
