@@ -66,6 +66,6 @@ extension String {
 	}
 	
 	subscript (str_start: String, str_end: String) -> String {
-		return self[self[str_start] + str_start.length(), self[str_end]]
+		return self.substringWithRange(Range<String.Index>(start: self.rangeOfString(str_start)!.endIndex, end: self.rangeOfString(str_end)!.startIndex))
 	}
 }
