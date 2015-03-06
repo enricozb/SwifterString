@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 extension String {
 	
@@ -35,9 +35,13 @@ extension String {
 		}
 		
 		if flipped {
-			return self[advance(self.startIndex, start)...advance(self.startIndex, end - start)].reverse()
+			return self[advance(self.startIndex, start)..<advance(self.startIndex, end - start)].reverse()
 		}
-		return self[advance(self.startIndex, start)...advance(self.startIndex, end - start)]
+		return self[advance(self.startIndex, start)..<advance(self.startIndex, end - start)]
+	}
+	
+	func substring (#start: String, end: String) -> String {
+		return self[start, end]
 	}
 	
 	subscript(start: Int, end: Int) -> String {
@@ -67,3 +71,5 @@ extension String {
 		return self.substringWithRange(Range<String.Index>(start: self.rangeOfString(str_start)!.endIndex, end: self.rangeOfString(str_end)!.startIndex))
 	}
 }
+
+println("abc".substring(start: "a", end: "c"))
