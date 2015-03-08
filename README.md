@@ -16,6 +16,7 @@ str[-14]                            // "<"
 str[14]                             // fails assertion: "Index is beyond range"
 str[-15]                            // fails assertion: "Index is beyond range"
 str.substring(start: 1, end: 13)    // "Hello, World" (Equivalent to str[1, 13])
+str.substring(start: "<", end: ">") // "Hello, World" (Equivalent to str["<", ">"])
 str.substringFrom(1)                // "Hello, World>"
 str.substringTo(13)                 // "<Hello, World"
 str.length()                        // 14

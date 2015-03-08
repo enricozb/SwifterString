@@ -72,4 +72,4 @@ extension String {
 	}
 }
 
-println("abc".substring(start: "a", end: "c"))
+println("<Hello, World>".substring(start: "<", end: ">"))
