@@ -71,5 +71,3 @@ extension String {
 		return self.substringWithRange(Range<String.Index>(start: self.rangeOfString(str_start)!.endIndex, end: self.rangeOfString(str_end)!.startIndex))
 	}
 }
-
-println("<Hello, World>".substring(start: "<", end: ">"))
