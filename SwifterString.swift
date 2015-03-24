@@ -19,7 +19,7 @@ extension String {
 	}
 	
 	func substringFrom(start: Int) -> String {
-		return self.substring(start: start, end: self.length())
+		return self.substring(start: start, end: self.length() + 1)
 	}
 	
 	func substringTo(end: Int) -> String {
@@ -34,10 +34,13 @@ extension String {
 			flipped = true
 		}
 		
+		let substring = self[advance(self.startIndex, start)..<advance(self.startIndex, end - start)]
+		
 		if flipped {
-			return self[advance(self.startIndex, start)..<advance(self.startIndex, end - start)].reverse()
+			return substring.reverse()
 		}
-		return self[advance(self.startIndex, start)..<advance(self.startIndex, end - start)]
+		
+		return substring
 	}
 	
 	func substring (#start: String, end: String) -> String {
